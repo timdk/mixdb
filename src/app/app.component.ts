@@ -15,5 +15,7 @@ import { AuthService } from './auth.service';
 export class AppComponent {
 	title = "MixDB";
 
+	public navCollapsed: boolean = true;
+
 	constructor(private authService: AuthService) {}
 }
