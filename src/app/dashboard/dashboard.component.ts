@@ -7,8 +7,7 @@ import { Song } from '../song'
 @Component({
 	selector: 'my-dashboard',
 	templateUrl: './dashboard.component.html',
-	//styleUrls: [ 'dashboard.component.css' ]
-	styles: []
+	styleUrls: [ './dashboard.component.css' ]
 })
 export class DashboardComponent {
 	constructor(private authService: AuthService, private router: Router) {}

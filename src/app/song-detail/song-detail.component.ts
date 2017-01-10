@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
 import 'rxjs/add/operator/switchmap';
@@ -15,26 +15,8 @@ import { SongService } from '../song.service';
  */
 @Component({
 	selector: '<song-detail></song-detail>',
-	template: `
-		<div *ngIf="song">
-		<h2>{{song.artist}} - {{song.title}}</h2>
-		<div>
-			<label>ID: </label>{{song.id}}
-		</div>
-		<div>
-			<label>Artist: </label><input [(ngModel)]="song.artist" placeholder="artist">
-		</div>
-		<div>	
-			<label>Title: </label><input [(ngModel)]="song.title" placeholder="title">
-		</div>
-		<div>
-			<label>BPM: </label><input [(ngModel)]="song.tempo">
-		</div>
-
-		<button (click)="save()">Save</button><button (click)="goBack()">Cancel</button>
-		</div>
-	`,
-	styles: []
+	templateUrl: './song-detail.component.html',
+	styleUrls: [ './song-detail.component.css' ]
 })
 export class SongDetailComponent {
 	@Input()
@@ -42,7 +24,7 @@ export class SongDetailComponent {
 
 	constructor(
 		private route: ActivatedRoute,
-		private location: Location,
+		private router: Router,
 		private songService: SongService
 	) {}
 
@@ -57,7 +39,20 @@ export class SongDetailComponent {
 		this.goBack();
 	}
 
+	delete(): void {
+		this.songService.delete(this.song);
+		this.goBack();
+	}
+
 	goBack(): void {
-		this.location.back();
+		this.router.navigate(['/library']);
+	}
+
+	increaseTempo(): void {
+		this.song.tempo++;
+	}
+
+	decreaseTempo(): void {
+		this.song.tempo--;
 	}
 }

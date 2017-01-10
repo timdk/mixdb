@@ -5,7 +5,7 @@ import { Mix } from '../mix';
 /** List recently modified mixes for the dashboard */
 @Component({
 	selector: '<mixdb-mix></mixdb-mix>',
-	template: `<h1>Mixes<h1>`,
+	template: `<h2>Mixes<h2>`,
 	styles: []
 })
 export class MixesComponent {

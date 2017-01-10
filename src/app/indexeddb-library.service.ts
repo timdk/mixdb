@@ -143,4 +143,17 @@ export class IndexedDBLibraryService implements LibraryService {
 			.delete()
 		)
 	}
+
+	/**
+	 * Delete a song and then remove it from all libraries
+	 * 
+	 * @abstract
+	 * @param {Song} song
+	 * @returns {Promise<any>}
+	 * 
+	 * @memberOf LibraryService
+	 */
+	deleteSong(song: Song): Promise<any> {
+		return this.songService.delete(song);
+	}
 }

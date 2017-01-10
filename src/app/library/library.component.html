@@ -1,26 +1,41 @@
-<h1>Library</h1>
+<h2>Library</h2>
 
-<button type="button" class="btn btn-primary" [(ngModel)]="isCollapsed" btnCheckbox (click)="isCollapsed = !isCollapsed" ngDefaultControl>Add</button>
-<br><br>
+<div class="library-toolbar">
+    <button type="button" class="btn btn-primary" [(ngModel)]="isCollapsed" btnCheckbox (click)="isCollapsed = !isCollapsed" ngDefaultControl>Add</button>
+    <button type="button" class="btn" (click)="refresh()">Refresh</button>
+</div>
 
 <div [collapse]="isCollapsed" class="card card-block card-header">
-  <div class="well well-lg">
-        <div>
-            <input #artistName placeholder="Unknown Artist"> <input #title placeholder="Title">
-            <button (click)="addSong(artistName.value, title.value);">Add Song</button>
-        </div>
+  <div class="well">
+      <form class="form-inline">
+            <div class="form-group">
+                <label class="sr-only" for="artistName">Artist</label>
+                <input #artistName class="form-control" placeholder="Unknown Artist">
+            </div>
+            <div class="form-group">    
+                <label class="sr-only" for="title">Title</label>
+                <input #title class="form-control" placeholder="Title">
+            </div>
+            <button class="btn" (click)="addSong(artistName.value, title.value);">Add Song</button>
+    </form>
         <hr>
+        <form class="form-inline">
         <div>
-            <input #catNo placeholder="Cat No." />
-            <button (click)="addRelease(catNo.value); catNo.value = '';">Add Release</button>
+            <div class="form-group">
+                <label class="sr-only" for="catNo">Catalog No.</label>
+                <input #catNo class="form-control" placeholder="Cat No." />
+            </div>
+            <button class="btn" (click)="addRelease(catNo.value); catNo.value = '';">Add Release</button>
         </div>
+      </form>
   </div>
 </div>
 
 <div id="library-table">
-    <ng-table [config]="config"
-          (tableChanged)="onChangeTable(config)"
-          (cellClicked)="onCellClick($event)"
-          [rows]="tableRows" [columns]="tableColumnConfig">
-    </ng-table>
+    <mixdb-table
+        [data]="tableData"
+        [columns]="tableColumnConfig"
+        [config]="tableConfig"
+        (cellClicked)="onCellClick($event)">
+    </mixdb-table>
 </div>

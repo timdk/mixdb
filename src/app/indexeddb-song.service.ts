@@ -85,4 +85,14 @@ export class IndexedDBSongService implements SongService {
 		);
 	}
 
+	delete(song: Song): Promise<Song> {
+		return Promise.resolve(
+			this.db.songs.delete(song.id)
+			.then(() => this.db.librarySongs
+						.where('songId').equals(song.id)
+						.delete())
+			.then(() => song)
+		);
+	}
+
 }

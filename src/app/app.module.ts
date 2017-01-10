@@ -32,8 +32,8 @@ import { LibraryComponent } from './library/library.component';
 import { SongDetailComponent } from './song-detail/song-detail.component';
 import { MixesComponent } from './mixes/mixes.component';
 import { MixDetailComponent } from './mix-detail/mix-detail.component';
-
 import { DevToolsComponent } from './dev-tools/dev-tools.component';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   imports:      [ 
@@ -52,7 +52,8 @@ import { DevToolsComponent } from './dev-tools/dev-tools.component';
   	MixesComponent,
   	MixDetailComponent,
     DevToolsComponent,
-    NG_TABLE_DIRECTIVES
+    NG_TABLE_DIRECTIVES,
+    TableComponent
   ],
   providers: [
     AuthService, AuthGuard,

@@ -55,4 +55,15 @@ export abstract class LibraryService {
 	 */
 	abstract removeSong(library: Library, song: Song): Promise<any>;
 
+	/**
+	 * Delete a song and then remove it from all libraries
+	 * 
+	 * @abstract
+	 * @param {Song} song
+	 * @returns {Promise<any>}
+	 * 
+	 * @memberOf LibraryService
+	 */
+	abstract deleteSong(song: Song): Promise<any>;
+
 }

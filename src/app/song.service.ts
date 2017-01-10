@@ -36,5 +36,16 @@ export abstract class SongService {
 	 * @returns {Promise<Song[]>}
 	 */
 	abstract getSongs(libraryId: string): Promise<Song[]>;
+
+	/**
+	 * Delete a song and remove it from all libraries.
+	 * 
+	 * @abstract
+	 * @param {Song} song
+	 * @returns {Promise<any>}
+	 * 
+	 * @memberOf SongService
+	 */
+	abstract delete(song: Song): Promise<any>;
 	
 }

@@ -10,12 +10,9 @@ import { IndexedDBService, IndexedDBStorage } from '../indexeddb.service';
  */
 @Component({
 	selector: 'dev-tools',
-	template: `
-		<div id="dev-toolbar">
-			<button (click)="clearDatabase()">Clear Database</button>
-		</div>
-	`,
-	styles: [ 'div#dev-toolbar { position: absolute; bottom: 0; padding: 10px; }' ]
+	templateUrl: './dev-tools.component.html',
+	//styles: [ 'div#dev-toolbar { position: absolute; bottom: 0; padding: 10px; }' ]
+	styleUrls: ['./dev-tools.component.css' ]
 })
 export class DevToolsComponent {
 	private db: IndexedDBStorage;
