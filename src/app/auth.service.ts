@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
@@ -21,7 +22,10 @@ export class AuthService {
     private user: User = null;       // The authenticated user. Cached here for future proofing.
     isLoggedIn: boolean = false;
 
-    constructor(private userService: UserService) {}
+    constructor(
+        private userService: UserService,
+        private router: Router) 
+    {}
 
     // store the URL so we can redirect after logging in
     redirectUrl: string;
@@ -70,6 +74,7 @@ export class AuthService {
         this.isLoggedIn = false;
         this.user = null;
         localStorage.removeItem(this.autoLoginKey);
+        this.router.navigate(['/login']);
     }
 
     /**

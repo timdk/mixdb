@@ -1,8 +1,5 @@
 
 <div class="container">
-    <!--<nav *ngIf="!this.authService.isLoggedIn">
-        <a routerLink="/login" routerLinkActive="active">Login</a>
-    </nav>-->
 
     <nav id="main-nav" *ngIf="this.authService.isLoggedIn" class="navbar navbar-default">
         <div class="container-fluid">
@@ -30,7 +27,9 @@
                     <li routerLinkActive="active"><a routerLink="/mixes">Mixes</a></li>
                 </ul>
 
-                <p class="navbar-text navbar-right">Signed in as {{authService.getCurrentUser().name}}</p>
+                <p class="navbar-text navbar-right">
+                    Signed in as {{authService.getCurrentUser().name}} (<a class="navbar-link" (click)="authService.logout()">Sign Out</a>)
+                </p>
 
             </div>
 
