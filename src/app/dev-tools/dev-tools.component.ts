@@ -15,7 +15,10 @@ import { IndexedDBService, IndexedDBStorage } from '../indexeddb.service';
 	styleUrls: ['./dev-tools.component.css' ]
 })
 export class DevToolsComponent {
+	private toolbarCollapsed: boolean = true;
+	
 	private db: IndexedDBStorage;
+
 
 	constructor(private indexedDbService: IndexedDBService) {
 		this.db = indexedDbService.getDatabase();
