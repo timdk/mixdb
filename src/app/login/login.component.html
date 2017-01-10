@@ -1,0 +1,13 @@
+
+<form class="form-signin">
+  <h2 class="form-signin-heading">Please sign in</h2>
+  <label for="name" class="sr-only">Username</label>
+  <input name="name" [(ngModel)]="name" class="form-control" placeholder="Who are you?" required autofocus>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" name="rememberMe" [(ngModel)]="rememberUser" value="true"> Remember me
+    </label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="login()">Sign in</button>
+  <!--<p>{{message}}</p>-->
+</form>

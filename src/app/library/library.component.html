@@ -1,0 +1,26 @@
+<h1>Library</h1>
+
+<button type="button" class="btn btn-primary" [(ngModel)]="isCollapsed" btnCheckbox (click)="isCollapsed = !isCollapsed" ngDefaultControl>Add</button>
+<br><br>
+
+<div [collapse]="isCollapsed" class="card card-block card-header">
+  <div class="well well-lg">
+        <div>
+            <input #artistName placeholder="Unknown Artist"> <input #title placeholder="Title">
+            <button (click)="addSong(artistName.value, title.value);">Add Song</button>
+        </div>
+        <hr>
+        <div>
+            <input #catNo placeholder="Cat No." />
+            <button (click)="addRelease(catNo.value); catNo.value = '';">Add Release</button>
+        </div>
+  </div>
+</div>
+
+<div id="library-table">
+    <ng-table [config]="config"
+          (tableChanged)="onChangeTable(config)"
+          (cellClicked)="onCellClick($event)"
+          [rows]="tableRows" [columns]="tableColumnConfig">
+    </ng-table>
+</div>

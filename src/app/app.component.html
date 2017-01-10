@@ -1,3 +1,13 @@
-<h1>
-  {{title}}
-</h1>
+<dev-tools></dev-tools>
+
+<nav *ngIf="!this.authService.isLoggedIn">
+    <a routerLink="/login" routerLinkActive="active">Login</a>
+</nav>
+
+<nav *ngIf="this.authService.isLoggedIn">
+    <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+    <a routerLink="/library" routerLinkActive="active">Library</a>
+    <a routerLink="/mixes" routerLinkActive="active">Mixes</a>
+</nav>
+
+<router-outlet></router-outlet>
