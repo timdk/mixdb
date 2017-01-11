@@ -21,14 +21,13 @@ export class AuthService {
     private readonly autoLoginKey: string = 'AuthService.AutoLogin';    // localStorage key to store last user against for auto login.
     private user: User = null;       // The authenticated user. Cached here for future proofing.
     isLoggedIn: boolean = false;
-
+    // store the URL so we can redirect after logging in
+    redirectUrl: string;
+    
     constructor(
         private userService: UserService,
         private router: Router) 
     {}
-
-    // store the URL so we can redirect after logging in
-    redirectUrl: string;
 
     /**
      * Retrieve the user from the UserService. If no user is found, create one with
@@ -73,6 +72,7 @@ export class AuthService {
     logout(): void {
         this.isLoggedIn = false;
         this.user = null;
+        this.redirectUrl = null;
         localStorage.removeItem(this.autoLoginKey);
         this.router.navigate(['/login']);
     }
