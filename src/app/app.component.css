@@ -1,23 +1,25 @@
 
-nav#main-nav {
-  margin-top: 15px;
+#main-container {
+  padding-top: 15px;
 }
 
-/*nav a {
-  padding: 5px 10px;
-  text-decoration: none;
-  margin-top: 10px;
-  display: inline-block;
-  background-color: #eee;
-  border-radius: 4px;
+.nav-logo {
+  position: absolute;
+  top: 8px;
+  left: 15px;
+  width: 45px;
+  height: 40px;
 }
-nav a:visited, a:link {
-  color: #607D8B;
+
+.navbar-brand {
+  margin-left: 50px;
 }
-nav a:hover {
-  color: #039be5;
-  background-color: #CFD8DC;
+
+.main-logo {
+  height: 40px;
+  width: 45px;
+  margin-right: 5px;
+  /*display: block;*/
+  background: url(/assets/vinyl.svg) no-repeat top left;
+  background-size: contain;
 }
-nav a.active {
-  color: #039be5;
-}*/

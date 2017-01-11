@@ -38,7 +38,7 @@ export class LibraryComponent implements OnInit {
 		className: ['table-striped', 'table-bordered']
 	};
 
-	public isCollapsed:boolean = true;
+	public isCollapsed: boolean = true;
 
 	/**
 	 * Creates an instance of LibraryComponent.

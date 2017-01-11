@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { CollapseModule } from 'ng2-bootstrap';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 import { NG_TABLE_DIRECTIVES } from 'ng2-table/ng2-table';
 
 /** Routes for navigation */
@@ -41,7 +42,7 @@ import { TableComponent } from './table/table.component';
   	FormsModule,
     HttpModule,
   	AppRoutingModule,
-    CollapseModule.forRoot()
+    NgbModule.forRoot()
   ],
   declarations: [ 
   	AppComponent,

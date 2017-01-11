@@ -1,13 +1,19 @@
 <h2>Library</h2>
 
 <div class="library-toolbar">
-    <button type="button" class="btn btn-primary" [(ngModel)]="isCollapsed" btnCheckbox (click)="isCollapsed = !isCollapsed" ngDefaultControl>Add</button>
+    <button  type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+          [attr.aria-expanded]="!isCollapsed" aria-controls="add-container">
+        Add
+    </button>
+    
     <button type="button" class="btn" (click)="refresh()">Refresh</button>
 </div>
 
-<div [collapse]="isCollapsed" class="card card-block card-header">
-  <div class="well">
-      <form class="form-inline">
+<div id="add-container" [ngbCollapse]="isCollapsed">
+    <div class="card bg-faded">
+    <div class="card-block">
+
+        <form class="form-inline">
             <div class="form-group">
                 <label class="sr-only" for="artistName">Artist</label>
                 <input #artistName class="form-control" placeholder="Unknown Artist">
@@ -16,19 +22,23 @@
                 <label class="sr-only" for="title">Title</label>
                 <input #title class="form-control" placeholder="Title">
             </div>
-            <button class="btn" (click)="addSong(artistName.value, title.value);">Add Song</button>
-    </form>
+            <button class="btn btn-primary" (click)="addSong(artistName.value, title.value);">Add Song</button>
+        </form>
+
         <hr>
+
         <form class="form-inline">
-        <div>
-            <div class="form-group">
-                <label class="sr-only" for="catNo">Catalog No.</label>
-                <input #catNo class="form-control" placeholder="Cat No." />
+            <div>
+                <div class="form-group">
+                    <label class="sr-only" for="catNo">Catalog No.</label>
+                    <input #catNo class="form-control" placeholder="Cat No." >
+                </div>
+                <button class="btn btn-primary" (click)="addRelease(catNo.value); catNo.value = '';">Add Release</button>
             </div>
-            <button class="btn" (click)="addRelease(catNo.value); catNo.value = '';">Add Release</button>
-        </div>
-      </form>
-  </div>
+        </form>
+
+    </div>
+    </div>
 </div>
 
 <div id="library-table">

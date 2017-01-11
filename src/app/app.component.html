@@ -1,43 +1,35 @@
 
-<div class="container">
+<nav id="main-nav" 
+    class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
 
-    <nav id="main-nav" *ngIf="this.authService.isLoggedIn" class="navbar navbar-default">
-        <div class="container-fluid">
+    <button 
+        class="navbar-toggler navbar-toggler-right" 
+        type="button" 
+        (click)="navCollapsed = !navCollapsed"
+        data-toggle="collapse" 
+        data-target="#main-nav-collapse" 
+        aria-controls="main-nav-collapse" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" routerLink="/"><img src="/assets/vinyl.svg" class="nav-logo">MixDB</a>
 
-            <div class="navbar-header">
-                <button type="button" 
-                        class="navbar-toggle collapsed" 
-                        (click)="navCollapsed = !navCollapsed" 
-                        data-toggle="collapse" 
-                        data-target="#main-nav-collapse" 
-                        aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" routerLink="/">MixDB</a>
-            </div>
-
-            <div class="collapse navbar-collapse" [collapse]="navCollapsed" id="main-nav-collapse">
-                
-                <ul class="nav navbar-nav ">
-                    <li routerLinkActive="active"><a routerLink="/dashboard">Dashboard</a></li>
-                    <li routerLinkActive="active"><a routerLink="/library">Library</a></li>
-                    <li routerLinkActive="active"><a routerLink="/mixes">Mixes</a></li>
-                </ul>
-
-                <p class="navbar-text navbar-right">
-                    Signed in as {{authService.getCurrentUser().name}} (<a class="navbar-link" (click)="authService.logout()">Sign Out</a>)
-                </p>
-
-            </div>
-
+    <div class="collapse navbar-collapse" [ngbCollapse]="navCollapsed" id="main-nav-collapse"     *ngIf="this.authService.isLoggedIn" >
+        <div class="navbar-nav mr-auto">
+            <a class="nav-link nav-item" routerLinkActive="active" routerLink="/dashboard">Dashboard</a>
+            <a class="nav-link nav-item" routerLinkActive="active" routerLink="/library">Library</a>
+            <a class="nav-link nav-item" routerLinkActive="active" routerLink="/mixes">Mixes</a>
         </div>
-    </nav>
 
+        <span class="navbar-text navbar-right">
+            Signed in as {{authService.getCurrentUser().name}} (<a class="navbar-link" (click)="authService.logout()">Sign Out</a>)
+        </span>
+    </div>
+</nav>
+
+<div id="main-container" class="container-fluid">
     <router-outlet></router-outlet>
-
 </div>
 
 <dev-tools></dev-tools>

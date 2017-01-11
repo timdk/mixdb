@@ -1,26 +1,17 @@
 
-<nav class="navbar navbar-default navbar-fixed-bottom">
-<div class="container-fluid">
-
+<nav class="navbar navbar-toggleable-md fixed-bottom navbar-light bg-faded">
     <!-- Header and button to show/hide tools on small devices -->
-    <div class="navbar-header">
-        <p class="navbar-brand">Dev Tools</p>
-
-        <button type="button" 
-                class="navbar-toggle collapsed" 
-                (click)="toolbarCollapsed = !toolbarCollapsed" 
-                data-toggle="collapse" 
-                data-target="#dev-tools-collapse" 
-                aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-        </button>
-    </div>
+    <button class="navbar-toggler navbar-toggler-right" type="button" 
+            (click)="toolbarCollapsed = !toolbarCollapsed"
+            data-toggle="collapse" data-target="#dev-tools-collapse" 
+            aria-controls="dev-tools-collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <span class="navbar-brand">Dev Tools</span>
 
     <!-- Collapsable Content -->     
-    <div class="collapse navbar-collapse" [collapse]="toolbarCollapsed" id="dev-tools-collapse">
-        <button class="btn navbar-btn" (click)="clearDatabase()">Clear Database</button>
+    <div class="collapse navbar-collapse" [ngbCollapse]="toolbarCollapsed" id="dev-tools-collapse">
+        <button class="btn btn-sm" (click)="clearDatabase()">Clear Database</button>
     </div>
 
-</div>
 </nav>
