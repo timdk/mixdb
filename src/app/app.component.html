@@ -1,7 +1,7 @@
-
+<div class="nav-wrapper">
 <nav id="main-nav" 
-    class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-
+    class="container navbar navbar-toggleable-sm navbar-inverse bg-inverse">
+    
     <button 
         class="navbar-toggler navbar-toggler-right" 
         type="button" 
@@ -13,9 +13,13 @@
         aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" routerLink="/"><img src="/assets/vinyl.svg" class="nav-logo">MixDB</a>
+    
+    <a class="navbar-brand" routerLink="/">
+        <img src="/assets/vinyl.svg" class="nav-logo">
+        <span>MixDB</span>
+    </a>
 
-    <div class="collapse navbar-collapse" [ngbCollapse]="navCollapsed" id="main-nav-collapse"     *ngIf="this.authService.isLoggedIn" >
+    <div id="main-nav-collapse" class="collapse navbar-collapse" [ngbCollapse]="navCollapsed" *ngIf="this.authService.isLoggedIn" >
         <div class="navbar-nav mr-auto">
             <a class="nav-link nav-item" routerLinkActive="active" routerLink="/dashboard">Dashboard</a>
             <a class="nav-link nav-item" routerLinkActive="active" routerLink="/library">Library</a>
@@ -23,12 +27,14 @@
         </div>
 
         <span class="navbar-text navbar-right">
-            Signed in as {{authService.getCurrentUser().name}} (<a class="navbar-link" (click)="authService.logout()">Sign Out</a>)
+            Signed in as {{authService.getCurrentUser().name}} (<a class="" (click)="authService.logout()">Sign Out</a>)
         </span>
     </div>
 </nav>
+</div>
 
-<div id="main-container" class="container-fluid">
+
+<div id="main-container" class="container">
     <router-outlet></router-outlet>
 </div>
 

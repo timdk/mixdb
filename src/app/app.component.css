@@ -4,15 +4,8 @@
 }
 
 .nav-logo {
-  position: absolute;
-  top: 8px;
-  left: 15px;
-  width: 45px;
-  height: 40px;
-}
-
-.navbar-brand {
-  margin-left: 50px;
+  height: 36px;
+  margin-top: -10px;
 }
 
 .main-logo {
@@ -22,4 +15,8 @@
   /*display: block;*/
   background: url(/assets/vinyl.svg) no-repeat top left;
   background-size: contain;
+}
+
+.nav-wrapper {
+  background-color: #292b2c;
 }
