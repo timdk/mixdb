@@ -24,7 +24,7 @@ describe('SongDetailComponent', () => {
       providers: [
         { provide: Router, useClass: RouterStub },
         { provide: ActivatedRoute, useClass: ActivatedRouteStub },
-        { provide: SongService: useClass: FakeSongService }
+        { provide: SongService, useClass: FakeSongService }
       ]
     })
     .compileComponents();
