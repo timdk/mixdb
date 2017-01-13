@@ -4,6 +4,8 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { DashboardComponent } from './dashboard.component';
+import { AuthService } from '../auth.service';
+import { FakeAuthService } from '../../testing/fake-auth.service';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -11,7 +13,8 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ]
+      declarations: [ DashboardComponent ],
+      providers: [{ provide: AuthService, useClass: FakeAuthService }],
     })
     .compileComponents();
   }));

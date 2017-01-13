@@ -74,7 +74,7 @@ export class AuthService {
         this.user = null;
         this.redirectUrl = null;
         localStorage.removeItem(this.autoLoginKey);
-        this.router.navigate(['/login']);
+        this.router.navigateByUrl('/login');
     }
 
     /**

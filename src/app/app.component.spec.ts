@@ -1,34 +1,61 @@
 /* tslint:disable:no-unused-variable */
+import { NO_ERRORS_SCHEMA }          from '@angular/core';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { By }              from '@angular/platform-browser';
+import { DebugElement }    from '@angular/core';
 
-import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from './auth.service';
+import { FakeAuthService } from '../testing/fake-auth.service';
+import { RouterOutletStubComponent, RouterLinkStubDirective } from '../testing/router-stubs';
 
-describe('AppComponent', () => {
-  beforeEach(() => {
+describe('AppComponent', () => {  
+
+  let fixture: ComponentFixture<AppComponent>;
+  let comp:    AppComponent;
+  let authService: AuthService;
+
+  beforeEach(async(() => {
+
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
+      imports: [
+        NgbModule.forRoot()
       ],
-    });
-    TestBed.compileComponents();
+      declarations: [
+        AppComponent,
+        RouterLinkStubDirective
+      ],
+      providers: [{ provide: AuthService, useClass: FakeAuthService }],
+      schemas: [ NO_ERRORS_SCHEMA ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    comp = fixture.componentInstance; // AppComponent test instance
+    authService = fixture.debugElement.injector.get(AuthService);
   });
 
   it('should create the app', async(() => {
-    let fixture = TestBed.createComponent(AppComponent);
-    let app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+    expect(comp).toBeTruthy();
   }));
 
-  it(`should have as title 'app works!'`, async(() => {
-    let fixture = TestBed.createComponent(AppComponent);
-    let app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app works!');
+  it(`should have as title 'MixDB'`, async(() => {
+    expect(comp.title).toEqual('MixDB');
+  }));
+
+  it('should have a main navbar', async(() => {
+    fixture.detectChanges();
+
+    let navbar = fixture.debugElement.query(By.css('nav#main-nav'));
+    expect(navbar).toBeTruthy();
   }));
 
   it('should render title in a h1 tag', async(() => {
-    let fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     let compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('app works!');
+    expect(compiled.querySelector('h1').textContent).toContain('MixDB');
   }));
 });

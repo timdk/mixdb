@@ -1,16 +1,19 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { IndexeddbSongService } from './indexeddb-song.service';
+import { IndexedDBSongService } from './indexeddb-song.service';
+import { IndexedDBService, IndexedDBStorage } from './indexeddb.service';
 
-describe('IndexeddbSongService', () => {
+describe('IndexedDBSongService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [IndexeddbSongService]
+      providers: [IndexedDBSongService,
+        IndexedDBService, IndexedDBStorage
+      ]
     });
   });
 
-  it('should ...', inject([IndexeddbSongService], (service: IndexeddbSongService) => {
+  it('should ...', inject([IndexedDBSongService], (service: IndexedDBSongService) => {
     expect(service).toBeTruthy();
   }));
 });

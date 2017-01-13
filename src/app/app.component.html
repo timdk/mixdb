@@ -15,8 +15,8 @@
     </button>
     
     <a class="navbar-brand" routerLink="/">
-        <img src="/assets/vinyl.svg" class="nav-logo">
-        <span>MixDB</span>
+        <img class="nav-logo" src="/assets/vinyl.svg">
+        <h1 class="navbar-title">{{title}}</h1>
     </a>
 
     <div id="main-nav-collapse" class="collapse navbar-collapse" [ngbCollapse]="navCollapsed" *ngIf="this.authService.isLoggedIn" >

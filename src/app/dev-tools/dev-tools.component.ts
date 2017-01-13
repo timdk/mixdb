@@ -19,7 +19,6 @@ export class DevToolsComponent {
 	
 	private db: IndexedDBStorage;
 
-
 	constructor(private indexedDbService: IndexedDBService) {
 		this.db = indexedDbService.getDatabase();
 	}

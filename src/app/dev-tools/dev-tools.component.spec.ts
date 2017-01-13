@@ -4,6 +4,8 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { DevToolsComponent } from './dev-tools.component';
+import { IndexedDBService, IndexedDBStorage } from '../indexeddb.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('DevToolsComponent', () => {
   let component: DevToolsComponent;
@@ -11,7 +13,11 @@ describe('DevToolsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DevToolsComponent ]
+      imports: [
+        NgbModule.forRoot()
+      ],
+      declarations: [ DevToolsComponent ],
+      providers: [IndexedDBService, IndexedDBStorage]
     })
     .compileComponents();
   }));

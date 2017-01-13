@@ -31,9 +31,13 @@ export class SongDetailComponent {
 	) {}
 
 	ngOnInit(): void {
-		this.route.params
-		.switchMap((params: Params) => this.songService.get(params['id']))
-		.subscribe(song => this.song = song);
+		try {
+			this.route.params
+			.switchMap((params: Params) => this.songService.get(params['id']))
+			.subscribe(song => this.song = song)
+		} catch(e) {
+			this.song = new Song('Unknown Artist', 'Untitled');	
+		}
 	}
 
 	save(): void {
@@ -47,7 +51,7 @@ export class SongDetailComponent {
 	}
 
 	goBack(): void {
-		this.router.navigate(['/library']);
+		this.router.navigateByUrl('/library');
 	}
 
 	increaseTempo(): void {

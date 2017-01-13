@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+//import { Router } from '@angular/router';
 
 import { AuthService } from '../auth.service';
 import { Song } from '../song'
@@ -10,7 +10,7 @@ import { Song } from '../song'
 	styleUrls: [ './dashboard.component.css' ]
 })
 export class DashboardComponent {
-	constructor(private authService: AuthService, private router: Router) {}
+	constructor(private authService: AuthService) {}
 
 	logout(): void {
 		this.authService.logout();

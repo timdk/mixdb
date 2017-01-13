@@ -10,7 +10,7 @@ import { Mix } from '../mix';
  */
 @Component({
 	selector: '<mix-detail></mix-detail>',
-	template: `<h2>{{mix.title}}</h2>`,
+	template: `<h2 *ngIf="mix">{{mix.title}}</h2>`,
 	styles: []
 })
 export class MixDetailComponent {
