@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { IndexedDBService, IndexedDBStorage } from './indexeddb.service';
+import { IndexedDBService, IndexedDBStorage } from '../core/indexeddb.service';
 import { UserService } from './user.service';
 import { User } from './user';
 

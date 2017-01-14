@@ -1,5 +1,5 @@
 //import { Injectable } from '@angular/core';
-import { Song, SongJSON } from '../app/song';
+import { Song, SongJSON } from '../app/song/song';
 
 /**
  * Song Service Class-Interface for Angular dependency injection

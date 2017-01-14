@@ -2,7 +2,7 @@
 
 import { TestBed, async, inject } from '@angular/core/testing';
 import { IndexedDBUserService } from './indexeddb-user.service';
-import { IndexedDBService, IndexedDBStorage } from './indexeddb.service';
+import { IndexedDBService, IndexedDBStorage } from '../core/indexeddb.service';
 
 describe('IndexedDBUserService', () => {
   beforeEach(() => {

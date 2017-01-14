@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from './auth.service';
+import { NavComponent } from './core/nav/nav.component';
 
 /**
  * The main entry point for the application.
@@ -14,8 +14,4 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent {
 	title = "MixDB";
-
-	public navCollapsed: boolean = true;
-
-	constructor(private authService: AuthService) {}
 }

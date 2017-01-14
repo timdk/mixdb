@@ -1,4 +1,4 @@
-import { Library } from './library';
+import { Library } from '../library/library';
 import { UUID } from 'angular2-uuid';
 
 /**

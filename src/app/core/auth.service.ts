@@ -6,8 +6,8 @@ import 'rxjs/add/observable/fromPromise';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
 
-import { User } from './user';
-import { UserService } from './user.service'
+import { User } from '../user/user';
+import { UserService } from '../user/user.service'
 
 /**
  * The AuthService makes use of the UserService to log a user in to the application.

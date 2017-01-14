@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 //import { Router } from '@angular/router';
 
-import { AuthService } from '../auth.service';
-import { Song } from '../song'
+import { AuthService } from '../core/auth.service';
 
 @Component({
 	selector: 'my-dashboard',

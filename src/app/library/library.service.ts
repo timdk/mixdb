@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Library } from './library';
-import { Song } from './song';
+import { Song } from '../song/song';
 
 /**
  * Library Service Class-Interface for Angular dependency injection

@@ -1,0 +1,34 @@
+<div class="nav-wrapper">
+<nav id="main-nav" 
+    class="container navbar navbar-toggleable-sm navbar-inverse bg-inverse">
+    
+    <button 
+        class="navbar-toggler navbar-toggler-right" 
+        type="button" 
+        (click)="navCollapsed = !navCollapsed"
+        data-toggle="collapse" 
+        data-target="#main-nav-collapse" 
+        aria-controls="main-nav-collapse" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <a class="navbar-brand" routerLink="/">
+        <img class="nav-logo" src="/assets/vinyl.svg">
+        <h1 class="navbar-title">{{title}}</h1>
+    </a>
+
+    <div id="main-nav-collapse" class="collapse navbar-collapse" [ngbCollapse]="navCollapsed" *ngIf="this.authService.isLoggedIn" >
+        <div class="navbar-nav mr-auto">
+            <a class="nav-link nav-item" routerLinkActive="active" routerLink="/dashboard">Dashboard</a>
+            <a class="nav-link nav-item" routerLinkActive="active" routerLink="/library">Library</a>
+            <a class="nav-link nav-item" routerLinkActive="active" routerLink="/mixes">Mixes</a>
+        </div>
+
+        <span class="navbar-text navbar-right">
+            Signed in as {{authService.getCurrentUser().name}} (<a class="" (click)="authService.logout()">Sign Out</a>)
+        </span>
+    </div>
+</nav>
+</div>

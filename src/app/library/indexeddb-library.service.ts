@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 
-import { IndexedDBService, IndexedDBStorage } from './indexeddb.service';
+import { IndexedDBService, IndexedDBStorage } from '../core/indexeddb.service';
 import { LibraryService } from './library.service';
-import { AuthService } from './auth.service'
-import { UserService } from './user.service';
-import { SongService } from './song.service';
+import { AuthService } from '../core/auth.service'
+import { UserService } from '../user/user.service';
+import { SongService } from '../song/song.service';
 
-import { User } from './user';
 import { Library } from './library';
-import { Song } from './song';
+import { User } from '../user/user';
+import { Song } from '../song/song';
 
 /**
  * The IndexedDB implementation of LibraryService.

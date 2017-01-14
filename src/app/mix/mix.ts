@@ -1,4 +1,4 @@
-import { Song } from './song';
+import { Song } from '../song/song';
 
 /**
  * A DJ mix. Contains a tracklist of songs.

@@ -1,14 +1,14 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AuthGuard } from './auth-guard.service';
+import { AuthGuard } from './core/auth-guard.service';
 
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent }   from './dashboard/dashboard.component';
 import { LibraryComponent } from './library/library.component';
-import { SongDetailComponent } from './song-detail/song-detail.component';
-import { MixesComponent } from './mixes/mixes.component';
-import { MixDetailComponent } from './mix-detail/mix-detail.component';
+import { SongDetailComponent } from './song/song-detail/song-detail.component';
+import { MixesComponent } from './mix/mixes/mixes.component';
+import { MixDetailComponent } from './mix/mix-detail/mix-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },

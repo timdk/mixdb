@@ -8,10 +8,10 @@ import { SongDetailComponent } from './song-detail.component';
 import { Song, SongJSON } from '../song';
 
 import { Router, ActivatedRoute } from '@angular/router';
-import { ActivatedRouteStub, RouterStub } from '../../testing/router-stubs'
+import { ActivatedRouteStub, RouterStub } from '../../../testing/router-stubs'
 
 import { SongService } from '../song.service';
-import { FakeSongService } from '../../testing/fake-song.service';
+import { FakeSongService } from '../../../testing/fake-song.service';
 
 describe('SongDetailComponent', () => {
   let component: SongDetailComponent;

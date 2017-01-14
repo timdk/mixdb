@@ -1,0 +1,27 @@
+
+/** 
+  * navbar applies the .container class so this wrapper 
+  * extends the background colour to the edge of the page 
+  */
+.nav-wrapper {
+  background-color: #292b2c;
+}
+
+/** Yuck! But it works, barely */
+.nav-logo {
+  height: 36px;
+  margin-top: -10px;
+}
+
+/** Remove all h1 styles so navbar header displays as if it were any other text */
+h1.navbar-title {
+  box-sizing:border-box;
+  color:rgb(255, 255, 255);
+  cursor:auto;
+  display:inline;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size:20px;
+  font-weight:normal;
+  line-height:30px;
+  white-space:nowrap;
+}

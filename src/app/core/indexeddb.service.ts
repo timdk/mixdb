@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 
 import Dexie from 'dexie';
 
-import { UserJSON } from './user';
-import { LibraryJSON, LibrarySong } from './library';
-import { SongJSON } from './song';
-import { MixJSON } from './mix';
+import { UserJSON } from '../user/user';
+import { LibraryJSON, LibrarySong } from '../library/library';
+import { SongJSON } from '../song/song';
+import { MixJSON } from '../mix/mix';
 
 /** 
  * Injectable service provides shared access 

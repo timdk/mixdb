@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { DashboardComponent } from './dashboard.component';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../core/auth.service';
 import { FakeAuthService } from '../../testing/fake-auth.service';
 
 describe('DashboardComponent', () => {

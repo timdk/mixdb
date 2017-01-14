@@ -1,5 +1,5 @@
 import { UUID } from 'angular2-uuid';
-import { Song } from './song';
+import { Song } from '../song/song';
 
 /**
  * A music library.

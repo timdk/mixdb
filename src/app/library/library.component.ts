@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { LibraryService } from '../library.service';
-import { Library } from '../library';
-import { Song } from '../song';
+import { LibraryService } from './library.service';
+import { Library } from './library';
+import { Song } from '../song/song';
 
-import { TableComponent } from '../table/table.component'
+import { LibraryTableComponent } from './library-table/library-table.component';
 
 /**
  * This component is used to display and manage a user's library.
@@ -20,23 +20,10 @@ import { TableComponent } from '../table/table.component'
 	styleUrls: [ './library.component.css' ],
 })
 export class LibraryComponent implements OnInit {
-	@ViewChild(TableComponent)
-	private table: TableComponent;
 	private library: Library;
 
-	private tableData: Array<any> = [];
-	private tableColumnConfig: Array<any> = [
-		{ title: 'Artist', name: 'artist', sort: 'asc' }, 
-		{ title: 'Title', name: 'title' },
-		{ title: 'Tempo', name: 'tempo' }
-	];
-	// Unfortunately this has to be named "config";
-	private tableConfig: any = {
-		paging: false,
-		sorting: {columns: this.tableColumnConfig},
-		filtering: {filterString: ''},
-		className: ['table-striped', 'table-bordered']
-	};
+	@ViewChild(LibraryTableComponent)
+	private table: LibraryTableComponent;
 
 	public isCollapsed: boolean = true;
 
@@ -110,5 +97,4 @@ export class LibraryComponent implements OnInit {
 			this.gotoDetail(id);
 		}
 	}
-
 }

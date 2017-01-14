@@ -41,11 +41,4 @@
     </div>
 </div>
 
-<div id="library-table">
-    <mixdb-table
-        [data]="tableData"
-        [columns]="tableColumnConfig"
-        [config]="tableConfig"
-        (cellClicked)="onCellClick($event)">
-    </mixdb-table>
-</div>
+<library-table (cellClicked)="onCellClick($event)"></library-table>

@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
-import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/switchmap';
 
 import { Song } from '../song';
 import { SongService } from '../song.service';
@@ -31,14 +31,13 @@ export class SongDetailComponent {
 	) {}
 
 	ngOnInit(): void {
-		this.route.params.map(p => p['id'])
-		.forEach(id => {
-			if (!id) {
-				throw new Error('No song ID provided');
-			}
-			this.songService.get(id)
-		})
-		.catch(() => this.song = new Song('Unknown Artist', 'Untitled'));
+		try {
+ 			this.route.params
+ 			.switchMap((params: Params) => this.songService.get(params['id']))
+ 			.subscribe(song => this.song = song)
+ 		} catch(e) {
+ 			this.song = new Song('Unknown Artist', 'Untitled');	
+ 		}
 	}
 
 	save(): void {

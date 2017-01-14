@@ -5,8 +5,8 @@ import { AuthGuard } from './auth-guard.service';
 
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
-import { FakeAuthService } from '../testing/fake-auth.service';
-import { RouterStub } from '../testing/router-stubs';
+import { FakeAuthService } from '../../testing/fake-auth.service';
+import { RouterStub } from '../../testing/router-stubs';
 
 describe('AuthGuard', () => {
   beforeEach(() => {

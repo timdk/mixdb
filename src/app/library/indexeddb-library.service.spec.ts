@@ -2,16 +2,16 @@
 
 import { TestBed, async, inject } from '@angular/core/testing';
 import { IndexedDBLibraryService } from './indexeddb-library.service';
-import { IndexedDBService, IndexedDBStorage } from './indexeddb.service';
+import { IndexedDBService, IndexedDBStorage } from '../core/indexeddb.service';
 
-import { AuthService } from './auth.service'
-import { UserService } from './user.service';
-import { SongService } from './song.service';
+import { AuthService } from '../core/auth.service'
+import { UserService } from '../user/user.service';
+import { SongService } from '../song/song.service';
 
 
-import { FakeAuthService } from '../testing/fake-auth.service'
-import { FakeUserService } from '../testing/fake-user.service';
-import { FakeSongService } from '../testing/fake-song.service';
+import { FakeAuthService } from '../../testing/fake-auth.service'
+import { FakeUserService } from '../../testing/fake-user.service';
+import { FakeSongService } from '../../testing/fake-song.service';
 
 
 

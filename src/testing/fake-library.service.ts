@@ -1,5 +1,5 @@
 
-import { Library } from '../app/library';
+import { Library } from '../app/library/library';
 
 export class FakeLibraryService {
 

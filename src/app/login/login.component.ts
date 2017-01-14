@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router }      from '@angular/router';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../core/auth.service';
 
 /**
  * Component to hand logging in and out of the application.
