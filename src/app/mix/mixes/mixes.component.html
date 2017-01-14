@@ -1,3 +1,8 @@
-<p>
-  mixes works!
-</p>
+<h2>Mixes</h2>
+
+<div class="mixes-toolbar">
+    <button type="button" class="btn btn-primary" (click)="createNew()">New</button>
+    <button class="btn btn-default" (click)="table.refresh()">Refresh</button>
+</div>
+
+<mixes-table (cellClicked)="onCellClick($event)"></mixes-table>

@@ -7,18 +7,21 @@ import { Song } from '../song/song';
  * @class Mix
  */
 export class Mix {
-	private modifiedDate: Date;
+	createdDate: Date;
+	modifiedDate: Date;
+	name: string;
 	tracklist: Song[];
 
 	/**
 	 * Creates an instance of Mix.
 	 * 
 	 * @param {string} name
-	 * 
-	 * @memberOf Mix
+	 * @constructor
 	 */
-	constructor(name: string) {
+	constructor(name?: string) {
+		this.createdDate = new Date();
 		this.modifiedDate = new Date();
+		this.name = name || 'Untitled';
 	}
 
 }

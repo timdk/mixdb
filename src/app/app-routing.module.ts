@@ -15,9 +15,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard',  component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'library', component: LibraryComponent, canActivate: [AuthGuard] },
-  { path: 'song/:id', component: SongDetailComponent, canActivate: [AuthGuard] },
   { path: 'song', component: SongDetailComponent, canActivate: [AuthGuard] },
+  { path: 'song/:id', component: SongDetailComponent, canActivate: [AuthGuard] },
   { path: 'mixes', component: MixesComponent, canActivate: [AuthGuard] },
+  { path: 'mix', component: MixDetailComponent, canActivate: [AuthGuard] },
   { path: 'mix/:id', component: MixDetailComponent, canActivate: [AuthGuard] }
 ];
 

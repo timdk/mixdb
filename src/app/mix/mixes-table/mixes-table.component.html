@@ -1,0 +1,11 @@
+<div *ngIf="config.filtering" class="table-filter">
+  <input placeholder="Find" class="form-control"
+          [ngTableFiltering]="config.filtering"
+          class="form-control"
+          (tableChanged)="onChangeTable(config)"/>
+</div>
+<ng-table [config]="config"
+      (tableChanged)="onChangeTable(config)"
+      (cellClicked)="onCellClick($event)"
+      [rows]="rows" [columns]="columns">
+</ng-table>

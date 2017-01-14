@@ -1,21 +1,44 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
+import { MixService } from '../mix.service';
+import { MixesTableComponent } from '../mixes-table/mixes-table.component';
 import { Mix } from '../mix';
 
-/** List recently modified mixes for the dashboard */
+/** 
+ * List the current user's mixes and provide actions for creating new mixes.
+ */
 @Component({
 	selector: '<mixdb-mix></mixdb-mix>',
-	template: `<h2>Mixes<h2>`,
-	styles: []
+	templateUrl: './mixes.component.html',
+	styleUrls: [ './mixes.component.html' ]
 })
 export class MixesComponent {
-	mixes: Mix[];
+	@ViewChild(MixesTableComponent) table: MixesTableComponent;
+	
+	mixes: Mix[] = [
+		new Mix(),
+		new Mix()
+	];
+
+	constructor(
+		private mixService: MixService,
+		private router: Router
+	) {}
 
 	ngOnInit(): void {
 		this.getMixes();
 	}
 
 	getMixes(): void {
+		this.table.setData(this.mixes);
+	}
 
+	onCellClick(data: any) {
+		console.log('mixes.component: cell clicked', data);
+	}
+
+	createNew() {
+		this.router.navigate(['/mix']);
 	}
 }

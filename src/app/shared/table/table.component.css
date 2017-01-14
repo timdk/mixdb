@@ -1,4 +1,4 @@
 
-div#table-filter {
-    margin-bottom: 15px;
+div.table-filter {
+    margin: 15px 0;
 }

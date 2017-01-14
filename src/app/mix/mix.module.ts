@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 
-/** Service Class-Interfaces */
+import { MixService } from './mix.service';
+import { IndexedDBMixService } from './indexeddb-mix.service';
 
-/** Service Implementations */
 /** Components */
 import { MixesComponent } from './mixes/mixes.component';
 import { MixDetailComponent } from './mix-detail/mix-detail.component';
+import { MixesTableComponent } from './mixes-table/mixes-table.component';
 
 @NgModule({
     imports: [
@@ -14,7 +15,11 @@ import { MixDetailComponent } from './mix-detail/mix-detail.component';
     ],
     declarations: [
         MixesComponent,
-        MixDetailComponent
+        MixDetailComponent,
+        MixesTableComponent
+    ],
+    providers: [
+        { provide: MixService, useClass: IndexedDBMixService }
     ],
     exports: [
         MixesComponent,

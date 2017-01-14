@@ -15,19 +15,16 @@ export class TableComponent implements OnInit {
     }
     public get data(): Array<any> { return this._data; }
     
-    @Input() 
-    public columns:Array<any> = [];
+    @Input() public columns:Array<any> = [];
     
-    @Input()
-    public config:any = {
-        paging: true,
+    @Input() public config:any = {
+        paging: false,	// Something wrong the the paging part of component template -- have commented it out for now
         sorting: {columns: this.columns},
         filtering: {filterString: ''},
-        className: ['table-striped', 'table-bordered']
+        className: ['table-bordered', 'table-striped', 'table-hover' ]
     };
 
-    @Output()
-    public cellClicked = new EventEmitter<any>();  // For parent component binding
+    @Output() public cellClicked = new EventEmitter<any>();  // For parent component binding
     
     public rows:Array<any> = [];    // Filtered and sorted data
 
@@ -77,7 +74,7 @@ export class TableComponent implements OnInit {
 	 * @memberOf LibraryComponent
 	 */
 	public onCellClick(data: any): any {
-        console.log('TableComponent.onCellClick: ', data);
+        //console.log('TableComponent.onCellClick: ', data);
         this.cellClicked.emit(data);
 	}
 
@@ -140,6 +137,13 @@ export class TableComponent implements OnInit {
 		});
 	}
 
+	
+	/**
+	 * Apply table / column filters to data and return a filtered data set.
+	 * @param {Array<any>} data
+	 * @param {*} config
+	 * @returns {Array<any>}
+	 */
 	public changeFilter(data:any, config:any):any {
 		let filteredData:Array<any> = data;
 		this.columns.forEach((column:any) => {
