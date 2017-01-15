@@ -104,8 +104,11 @@ export class IndexedDBLibraryService implements LibraryService {
 	 * 
 	 * @memberOf IndexedDBLibraryService
 	 */
-	getSongs(libraryId: string): Promise<Song[]> {
-		return Promise.resolve(this.songService.getSongs(libraryId));
+	getSongs(libraryId?: string): Promise<Song[]> {
+		if (!libraryId) {
+			libraryId = this.authService.getCurrentUser().getLibraryId();
+		}
+		return this.songService.getSongs(libraryId);
 	}
 
 	/**

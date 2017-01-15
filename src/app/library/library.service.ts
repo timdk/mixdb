@@ -33,7 +33,7 @@ export abstract class LibraryService {
 	 * @param  {string}          libraryId
 	 * @return {Promise<Song[]>}           A promise that resolves with an array of Songs.
 	 */
-	abstract getSongs(libraryId: string): Promise<Song[]>;
+	abstract getSongs(libraryId?: string): Promise<Song[]>;
 
 	/**
 	 * Create or update a song and add it to a user's library.
