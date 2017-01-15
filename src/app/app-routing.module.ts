@@ -11,7 +11,7 @@ import { MixesComponent } from './mix/mixes/mixes.component';
 import { MixDetailComponent } from './mix/mix-detail/mix-detail.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/library', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard',  component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'library', component: LibraryComponent, canActivate: [AuthGuard] },
