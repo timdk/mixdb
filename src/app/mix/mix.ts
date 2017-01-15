@@ -1,3 +1,4 @@
+import { UUID } from 'angular2-uuid';
 import { Song } from '../song/song';
 
 /**
@@ -7,10 +8,12 @@ import { Song } from '../song/song';
  * @class Mix
  */
 export class Mix {
+	id: string;
+	userId: string;	// Populated by MixService with current user's ID
 	createdDate: Date;
 	modifiedDate: Date;
 	name: string;
-	tracklist: Song[];
+	tracklist: Song[] = [];
 
 	/**
 	 * Creates an instance of Mix.
@@ -19,6 +22,7 @@ export class Mix {
 	 * @constructor
 	 */
 	constructor(name?: string) {
+		this.id = UUID.UUID();
 		this.createdDate = new Date();
 		this.modifiedDate = new Date();
 		this.name = name || 'Untitled';
@@ -29,5 +33,8 @@ export class Mix {
 export interface MixJSON {
 	id: string,
 	userId: string,
-	trackList: string[];
+	createdDate: Date;
+	modifiedDate: Date;
+	name: string;
+	tracklist: Array<any>;
 }

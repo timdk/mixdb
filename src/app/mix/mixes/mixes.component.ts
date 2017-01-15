@@ -16,10 +16,7 @@ import { Mix } from '../mix';
 export class MixesComponent {
 	@ViewChild(MixesTableComponent) table: MixesTableComponent;
 	
-	mixes: Mix[] = [
-		new Mix(),
-		new Mix()
-	];
+	mixes: Mix[] = [];
 
 	constructor(
 		private mixService: MixService,
@@ -31,14 +28,23 @@ export class MixesComponent {
 	}
 
 	getMixes(): void {
-		this.table.setData(this.mixes);
+		this.mixService.getMixes()
+		.then(mixes => {
+			this.mixes = mixes;
+			this.table.setData(this.mixes);
+		});
 	}
 
 	onCellClick(data: any) {
 		console.log('mixes.component: cell clicked', data);
+		this.gotoDetail(data.row.id);
 	}
 
 	createNew() {
 		this.router.navigate(['/mix']);
+	}
+
+	gotoDetail(id: string): void {
+		this.router.navigate(['/mix', id]);
 	}
 }

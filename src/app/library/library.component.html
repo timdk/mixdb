@@ -1,12 +1,12 @@
 <h2>Library</h2>
 
 <div class="library-toolbar">
-    <button  type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+    <button  type="button" class="btn btn-primary" (click)="isCollapsed = !isCollapsed"
           [attr.aria-expanded]="!isCollapsed" aria-controls="add-container">
-        Add
+        Add to Library
     </button>
     
-    <button type="button" class="btn" (click)="refresh()">Refresh</button>
+    <!--<button type="button" class="btn" (click)="refresh()">Refresh</button>-->
 </div>
 
 <div id="add-container" [ngbCollapse]="isCollapsed">

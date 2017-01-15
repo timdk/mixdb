@@ -25,8 +25,8 @@ export class Song {
 	 * @memberOf Song
 	 */
 	constructor(
-		artist: string, 
-		title: string, 
+		artist: string = 'Unknown Artist', 
+		title: string = 'Untitled', 
 		tempo: number = 0, 
 		key: string = '',
 		id?: string

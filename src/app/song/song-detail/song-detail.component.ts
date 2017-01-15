@@ -14,7 +14,7 @@ import { SongService } from '../song.service';
  * @class SongDetailComponent
  */
 @Component({
-	selector: '<song-detail></song-detail>',
+	selector: 'song-detail',
 	templateUrl: './song-detail.component.html',
 	styleUrls: [ 
 		'./song-detail.component.css',
