@@ -69,7 +69,7 @@ export class IndexedDBStorage extends Dexie {
 			libraries: 'id, userId',
 			librarySongs: '++, [libraryId+songId], libraryId, songId',
 			songs: 'id, artist, title, tempo, key',
-			mixes: 'id, userId, *trackList'
+			mixes: 'id, userId'
 		});
 	}
 	
