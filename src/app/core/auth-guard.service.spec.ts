@@ -9,17 +9,21 @@ import { FakeAuthService } from '../../testing/fake-auth.service';
 import { RouterStub } from '../../testing/router-stubs';
 
 describe('AuthGuard', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [
-        AuthGuard,
-        { provide: Router, useClass: RouterStub },
-        { provide: AuthService, useClass: FakeAuthService },
-      ]
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+        providers: [
+            AuthGuard,
+            { provide: Router, useClass: RouterStub },
+            { provide: AuthService, useClass: FakeAuthService },
+        ]
+        });
     });
-  });
 
-  it('should ...', inject([AuthGuard], (service: AuthGuard) => {
-    expect(service).toBeTruthy();
-  }));
+    it('should be creatable', inject([AuthGuard], (service: AuthGuard) => {
+        expect(service).toBeTruthy();
+    }));
+
+    it ('should only allow activation of the login component when unauthenticated', () =>{
+        expect(true).toBeFalsy('test not implemented');
+    })
 });

@@ -8,24 +8,33 @@ import { AuthService } from '../core/auth.service';
 import { FakeAuthService } from '../../testing/fake-auth.service';
 
 describe('DashboardComponent', () => {
-  let component: DashboardComponent;
-  let fixture: ComponentFixture<DashboardComponent>;
+    let component: DashboardComponent;
+    let fixture: ComponentFixture<DashboardComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ],
-      providers: [{ provide: AuthService, useClass: FakeAuthService }],
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+        declarations: [ DashboardComponent ],
+        providers: [{ provide: AuthService, useClass: FakeAuthService }],
+        })
+        .compileComponents();
+    }));
+
+    beforeEach(() => {
+        fixture = TestBed.createComponent(DashboardComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
+
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
+
+    it('should have a welcome message', () => {
+        expect(true).toBeFalsy('test not implemented');
+    });
+
+    it('should be useful', () => {
+        let useful = false;
+        expect(useful).toBeTruthy('the dashboard is useless');
     })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(DashboardComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

@@ -38,4 +38,13 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should remember users', () => {
+    expect(true).toBe(false, 'test not implemented');
+  });
+
+  it('should redirect after login', () => {
+    let redirect = false;
+    expect(redirect).toBe(true, 'test not implemented');
+  })
 });

@@ -67,6 +67,10 @@ describe('LibraryComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should add songs to a library', () => {
+        expect(true).toBeFalsy('test not implemented');
+    });
+
   it('should have a LibraryTableComponent', () => {
     let tableComponent = fixture.debugElement.query(By.css('library-table'));
     expect(tableComponent).toBeTruthy();

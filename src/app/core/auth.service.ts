@@ -18,12 +18,20 @@ import { UserService } from '../user/user.service'
  */
 @Injectable()
 export class AuthService {
-    private readonly autoLoginKey: string = 'AuthService.AutoLogin';    // localStorage key to store last user against for auto login.
-    private user: User = null;       // The authenticated user. Cached here for future proofing.
-    isLoggedIn: boolean = false;
-    // store the URL so we can redirect after logging in
-    redirectUrl: string;
+    private readonly autoLoginKey: string = 'AuthService.AutoLogin';    // localStorage key to store details against for autologin.
+    private user: User = null;          // The authenticated user. Cached here for future proofing.
     
+    public isLoggedIn: boolean = false;
+    public redirectUrl: string;         // store the URL so we can redirect after logging in
+    
+    /**
+     * Creates an instance of AuthService.
+     * 
+     * @param {UserService} userService
+     * @param {Router} router
+     * 
+     * @memberOf AuthService
+     */
     constructor(
         private userService: UserService,
         private router: Router) 

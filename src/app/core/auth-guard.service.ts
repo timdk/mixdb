@@ -19,7 +19,6 @@ import { AuthService }      from './auth.service';
 export class AuthGuard implements CanActivate {
 
     constructor(private authService: AuthService, private router: Router) {}
-
     
     /**
      * Check whether the current user is authenticated. If they are, return true.
