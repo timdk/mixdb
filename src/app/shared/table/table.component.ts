@@ -1,5 +1,12 @@
 import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 
+/**
+ * A shared component to make using the ng2-table library easier.
+ * See: https://github.com/valor-software/ng2-table
+ * @export
+ * @class TableComponent
+ * @implements {OnInit}
+ */
 @Component({
     selector: 'mixdb-table',
     templateUrl: './table.component.html',
@@ -8,6 +15,10 @@ import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 export class TableComponent implements OnInit {
     private _data: Array<any> = [];
     
+    /**
+     * Raw unfiltered data for the table.
+     * @memberOf TableComponent
+     */
     @Input()
     public set data(data: Array<any>) {
         this._data = data;
@@ -15,8 +26,22 @@ export class TableComponent implements OnInit {
     }
     public get data(): Array<any> { return this._data; }
     
+	
+    /**
+     * Column definitions.
+     * 
+     * @type {Array<any>}
+     * @memberOf TableComponent
+     */
     @Input() public columns:Array<any> = [];
     
+	
+    /**
+     * Default table configuration.
+     * 
+     * @type {*}
+     * @memberOf TableComponent
+     */
     @Input() public config:any = {
         paging: false,	// Something wrong the the paging part of component template -- have commented it out for now
         sorting: {columns: this.columns},

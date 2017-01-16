@@ -8,7 +8,7 @@ import { Song } from '../song/song';
  * @class Library
  */
 export class Library {
-	id: string = 'dev';	// temp ID until multiple libraries are implemented
+	id: string;
 	private created: Date;
 	private songs: SongMap = {};
 
@@ -84,6 +84,9 @@ export class Library {
 
 	/** de/serialisation functions */
 
+	/**
+	 * Create a JSON representation of this library.
+	 */
 	toJSON(): LibraryJSON {
 		return Object.assign({} as LibraryJSON, this, {
 			// convert fields that need converting
@@ -111,6 +114,13 @@ export class Library {
 
 }
 
+ 
+/**
+ * Serialisable version of a Library. Created from Library.toJSON() and restored using
+ * Library.fromJSON(libraryJson) or JSON.parse(libraryJson, Library.reviver);
+ * @export
+ * @interface LibraryJSON
+ */
 export interface LibraryJSON {
 	id: string;
 	userId: string;
@@ -123,6 +133,10 @@ export interface LibrarySong {
 	songId: string
 }
 
+/**
+ * The type of Library.songs
+ * @interface SongMap
+ */
 interface SongMap {
 	[id: string]: Song;
 }

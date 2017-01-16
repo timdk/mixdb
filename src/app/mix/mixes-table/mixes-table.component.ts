@@ -4,6 +4,13 @@ import { DatePipe } from '@angular/common';
 import { TableComponent } from '../../shared/table/table.component';
 import { Mix } from '../mix';
 
+/**
+ * The list of mixes on the MixDetailComponent. Extends TableComponent in order to set 
+ * the columns and override setData() to perform data transformations.
+ * @export
+ * @class MixesTableComponent
+ * @extends {TableComponent}
+ */
 @Component({
     selector: 'mixes-table',
     templateUrl: '../../shared/table/table.component.html',
@@ -17,7 +24,6 @@ export class MixesTableComponent extends TableComponent {
         { title: 'Date', name: 'date', sort: 'desc' }
     ];
 
-    
     /**
      * Set content of the table, performing the required transformations for dates.
      * @param {Array<any>} data

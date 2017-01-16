@@ -6,7 +6,7 @@ import { AuthService } from '../core/auth.service'
 import { UserService } from '../user/user.service';
 import { SongService } from '../song/song.service';
 
-import { Library } from './library';
+import { Library, LibraryJSON } from './library';
 import { User } from '../user/user';
 import { Song } from '../song/song';
 
@@ -65,7 +65,7 @@ export class IndexedDBLibraryService implements LibraryService {
 			let libraryId = user.getLibraryId();
 			return libraryId ? this.db.libraries.get(user.getLibraryId()) : null; 
 		})
-		.then(libraryJSON => {
+		.then((libraryJSON: LibraryJSON) => {
 			// If it doesn't exist, create a new one and assign it to the user
 			let library: Library;
 			if (!libraryJSON) {

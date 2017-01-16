@@ -15,17 +15,17 @@
         <li class="list-group-item">
             <div class="input-group">
                 <div class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></div>
-                <input #libraryFilter
+                <input #filterInput
                     type="text" 
                     class="form-control" 
                     placeholder="Search library to add tracks"
-                    (keyup)="filterLibrary(libraryFilter.value)">
+                    (keyup)="filterLibrary(filterInput.value)">
             </div>
         </li>
         <!-- Display search results -->
         <li *ngFor="let song of filteredSongs; let i = index;" 
             class="list-group-item"
-            (click)="addTrack(song)">
+            (click)="addTrackClicked(song)">
                 <div class="col-1"></div>
                 <div class="col-3"><b>{{song.artist}}</b></div>
                 <div class="col-4">{{song.title}}</div>

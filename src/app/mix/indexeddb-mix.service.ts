@@ -7,10 +7,24 @@ import { IndexedDBService, IndexedDBStorage } from '../core/indexeddb.service';
 import { Mix } from './mix';
 import { Song } from '../song/song';
 
+/**
+ * The IndexedDB Implementation of MixService
+ * @export
+ * @class IndexedDBMixService
+ * @implements {MixService}
+ */
 @Injectable()
 export class IndexedDBMixService implements MixService {
     private db: IndexedDBStorage;
 
+    /**
+     * Creates an instance of IndexedDBMixService.
+     * 
+     * @param {AuthService} authService
+     * @param {IndexedDBService} indexedDBService
+     * 
+     * @memberOf IndexedDBMixService
+     */
     constructor(
         private authService: AuthService,
         private indexedDBService: IndexedDBService
@@ -18,11 +32,27 @@ export class IndexedDBMixService implements MixService {
         this.db = indexedDBService.getDatabase();
     }
 
+    /**
+     * Get a mix by its ID.
+     * 
+     * @param {string} id
+     * @returns {Promise<Mix>}
+     * 
+     * @memberOf IndexedDBMixService
+     */
     getMix(id: string): Promise<Mix> {
         return this.db.mixes.get(id)
         .then(mixJSON => { return mixJSON as Mix; });
     }
 
+    /**
+     * Get the mixes for a user.
+     * 
+     * @param {string} [username]   Defaults to current user's name if not supplied.
+     * @returns {Promise<Mix[]>}
+     * 
+     * @memberOf IndexedDBMixService
+     */
     getMixes(username?: string): Promise<Mix[]> {
         if (!username) {
             if (this.authService.isLoggedIn) {
@@ -48,6 +78,15 @@ export class IndexedDBMixService implements MixService {
         });
     }
 
+    
+    /**
+     * Save a mix.
+     * 
+     * @param {Mix} mix
+     * @returns {Promise<any>}
+     * 
+     * @memberOf IndexedDBMixService
+     */
     saveMix(mix: Mix): Promise<any> {
         if (!this.authService.isLoggedIn) {
             throw new Error('MixService: Must be logged in to save a mix');
@@ -61,14 +100,41 @@ export class IndexedDBMixService implements MixService {
         .then(() => { return mix });
     }
 
+    
+    /**
+     * Add a song to a mix.
+     * 
+     * @param {Mix} mix
+     * @param {Song} song
+     * @returns {Promise<any>}
+     * 
+     * @memberOf IndexedDBMixService
+     */
     addSong(mix: Mix, song: Song): Promise<any> {
-        return Promise.resolve();
+        return Promise.resolve(); // At the moment Songs are stored directly on the mix.
     }
 
+    /**
+     * Remove a song from a mix.
+     * 
+     * @param {Mix} mix
+     * @param {Song} song
+     * @returns {Promise<any>}
+     * 
+     * @memberOf IndexedDBMixService
+     */
     removeSong(mix: Mix, song: Song): Promise<any> {
-        return Promise.resolve();
+        return Promise.resolve(); // At the moment Songs are stored directly on the mix.
     }
-
+    
+    /**
+     * Delete a mix completely.
+     * 
+     * @param {Mix} mix
+     * @returns {Promise<any>}
+     * 
+     * @memberOf IndexedDBMixService
+     */
     deleteMix(mix: Mix): Promise<any> {
         return this.db.mixes.delete(mix.id)
         .then(() => { return mix });

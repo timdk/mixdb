@@ -4,6 +4,14 @@ import { LibraryService } from '../../../library/library.service';
 import { Mix } from '../../mix';
 import { Song } from '../../../song/song';
 
+/**
+ * Lists the tracks (Songs) in a mix and provides abilities reorganising 
+ * and appending tracks.
+ * 
+ * @export
+ * @class MixTracklistComponent
+ * @implements {OnInit}
+ */
 @Component({
     selector: 'mix-tracklist',
     templateUrl: './mix-tracklist.component.html',
@@ -11,14 +19,20 @@ import { Song } from '../../../song/song';
 })
 export class MixTracklistComponent implements OnInit {
     @Input() mix: Mix;
-    @Output() trackAdded = new EventEmitter<any>();
+    @Output() trackAdded = new EventEmitter<any>(); // Pass events back to the parent component so that 
+                                                    // it can track unsaved changes etc.
 
-    private librarySongs: Song[];
-    private filteredSongs: Song[];
+    private librarySongs: Song[];       // The user's complete library (until that's unfeasible...).
+    private filteredSongs: Song[];      // A filtered list of songs to add based on user input.
     
+    /**
+     * Creates an instance of MixTracklistComponent.
+     * 
+     * @param {LibraryService} libraryService
+     */
     constructor(private libraryService: LibraryService) { }
 
-    /** Fetch the songs from the library for lookup when building the tracklist */
+    /** Fetch the songs from the library for lookup when building the tracklist. */
     ngOnInit() {
         this.libraryService.getSongs()
         .then(songs => this.librarySongs = songs);
@@ -55,8 +69,8 @@ export class MixTracklistComponent implements OnInit {
 
     }
 
-    /** Emit an event for the parent MixDetailComponent to bind to */
-    addTrack(song: Song): void {
+    /** Emit an event for the parent MixDetailComponent to bind to. */
+    addTrackClicked(song: Song): void {
         this.trackAdded.emit(song);
     }
 

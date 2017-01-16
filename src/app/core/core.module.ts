@@ -1,7 +1,7 @@
 import { NgModule, Optional, SkipSelf  } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-/** For CommonModule, FormModule (for login) bootstrap directives (for nav/dev-tools) */
+/** For CommonModule, FormModule (for login) and bootstrap directives (for nav/dev-tools) */
 import { SharedModule } from '../shared/shared.module';
 
 /** Authentication Services */

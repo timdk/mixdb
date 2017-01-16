@@ -9,7 +9,7 @@ import { Song } from '../song/song';
  */
 export class Mix {
 	id: string;
-	userId: string;	// Populated by MixService with current user's ID
+	userId: string;	// Populated by MixService with current user's ID when saving.
 	createdDate: Date;
 	modifiedDate: Date;
 	name: string;

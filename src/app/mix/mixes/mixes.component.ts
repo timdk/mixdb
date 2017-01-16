@@ -7,6 +7,8 @@ import { Mix } from '../mix';
 
 /** 
  * List the current user's mixes and provide actions for creating new mixes.
+ * @export
+ * @class MixesComponent
  */
 @Component({
 	selector: '<mixdb-mix></mixdb-mix>',
@@ -15,18 +17,28 @@ import { Mix } from '../mix';
 })
 export class MixesComponent {
 	@ViewChild(MixesTableComponent) table: MixesTableComponent;
-	
+
 	mixes: Mix[] = [];
 
+	/**
+	 * Creates an instance of MixesComponent.
+	 * 
+	 * @param {MixService} mixService
+	 * @param {Router} router
+	 * 
+	 * @memberOf MixesComponent
+	 */
 	constructor(
 		private mixService: MixService,
 		private router: Router
 	) {}
 
+	/** Load this user's mixes */
 	ngOnInit(): void {
 		this.getMixes();
 	}
 
+	/** Fetch the mixes from the MixService and set them on this component */
 	getMixes(): void {
 		this.mixService.getMixes()
 		.then(mixes => {
@@ -35,15 +47,31 @@ export class MixesComponent {
 		});
 	}
 
+	
+	/**
+	 * Respond to click events from the MixTracklistComponent.
+	 * @param {*} data
+	 * @memberOf MixesComponent
+	 */
 	onCellClick(data: any) {
-		console.log('mixes.component: cell clicked', data);
 		this.gotoDetail(data.row.id);
 	}
 
+	
+	/**
+	 * Navigate to the MixDetailComponent to create a new mix.
+	 * @memberOf MixesComponent
+	 */
 	createNew() {
 		this.router.navigate(['/mix']);
 	}
 
+
+	/**
+	 * Navigate to the MixDetailComponent to edit an existing mix.
+	 * @param {string} id
+	 * @memberOf MixesComponent
+	 */
 	gotoDetail(id: string): void {
 		this.router.navigate(['/mix', id]);
 	}

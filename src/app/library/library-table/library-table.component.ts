@@ -2,50 +2,25 @@ import { Component, ViewChild, Output, EventEmitter } from '@angular/core';
 
 import { TableComponent } from '../../shared/table/table.component';
 
+
+/**
+ * The list of songs in a user's library. Extends TableComponent 
+ * to set the columns.
+ * 
+ * @export
+ * @class LibraryTableComponent
+ * @extends {TableComponent}
+ */
 @Component({
     selector: 'library-table',
-    templateUrl: './library-table.component.html',
-    styleUrls: ['./library-table.component.css']
+    templateUrl: '../../shared/table/table.component.html',	// ** Superclass template
+    styleUrls: ['../../shared/table/table.component.css']	// ** Superclass style
 })
-export class LibraryTableComponent {
+export class LibraryTableComponent extends TableComponent {
 
-    @Output()
-    public cellClicked = new EventEmitter<any>()
-
-    @ViewChild(TableComponent)
-	private table: TableComponent;
-    
-    private tableData: Array<any> = [];
-	
-    private tableColumnConfig: Array<any> = [
+    public columns: Array<any> = [
 		{ title: 'Artist', name: 'artist', sort: 'asc' }, 
 		{ title: 'Title', name: 'title' },
 		{ title: 'Tempo', name: 'tempo' }
 	];
-	
-	private tableConfig: any = {
-		paging: false,
-		sorting: {columns: this.tableColumnConfig},
-		filtering: {filterString: ''},
-		className: ['table-striped', 'table-bordered']
-	};
-
-
-    constructor() { }
-
-    setData(data: Array<any>) {
-        this.table.setData(data);
-    }
-
-    /**
-	 * Cell clicked callback
-	 * 
-	 * @param {*} data
-	 * @returns {*}
-	 * @memberOf LibraryComponent
-	 */
-	public onCellClick(data: any): any {
-        this.cellClicked.emit(data);
-	}
-
 }

@@ -5,11 +5,6 @@ import { SongService } from './song.service';
 import { Song } from './song';
 
 /**
- * Return values from IndexedDBStorage are wrapped in Promise.resolve() because Dexie's promise class
- * doesn't have the toStringTag property on it. There is a fix on github but it hasn't been rolled into
- * a release version yet.
- */
-/**
  * An IndexedDB implementation of SongService.
  * 
  * @export
@@ -40,10 +35,8 @@ export class IndexedDBSongService implements SongService {
 	 * @memberOf IndexedDBSongService
 	 */
 	get(id: string): Promise<Song> {
-		return Promise.resolve(
-			this.db.songs.get(id)
-			.then(song => Song.fromJSON(song))
-		);
+		return this.db.songs.get(id)
+		.then(song => Song.fromJSON(song))
 	}
 
 	/**
@@ -55,9 +48,7 @@ export class IndexedDBSongService implements SongService {
 	 * @memberOf IndexedDBSongService
 	 */
 	save(song: Song): Promise<Song> {
-		return Promise.resolve(
-			this.db.songs.put(song.toJSON())
-		);
+		return this.db.songs.put(song.toJSON())
 	}
 
 	/**
@@ -71,28 +62,33 @@ export class IndexedDBSongService implements SongService {
 	getSongs(libraryId: string): Promise<Song[]> {
 		let songs: Song[] = [];
 		
-		return Promise.resolve(
-			this.db.librarySongs
-			.where('libraryId').equals(libraryId)
-			.toArray(idPairs => {
-				let songIds: string[] = [];
-				for (let i = 0; i < idPairs.length; i++) {
-					songIds.push(idPairs[i].songId);
-				}
-				return songIds;
-			})
-			.then(songIds => this.db.songs.where('id').anyOf(songIds).toArray())
-		);
+		return this.db.librarySongs
+		.where('libraryId').equals(libraryId)
+		.toArray(idPairs => {
+			let songIds: string[] = [];
+			for (let i = 0; i < idPairs.length; i++) {
+				songIds.push(idPairs[i].songId);
+			}
+			return songIds;
+		})
+		.then(songIds => this.db.songs.where('id').anyOf(songIds).toArray())
 	}
 
+	
+	/**
+	 * Delete a song and remove it from all libraries.
+	 * 
+	 * @param {Song} song
+	 * @returns {Promise<Song>}
+	 * 
+	 * @memberOf IndexedDBSongService
+	 */
 	delete(song: Song): Promise<Song> {
-		return Promise.resolve(
-			this.db.songs.delete(song.id)
-			.then(() => this.db.librarySongs
-						.where('songId').equals(song.id)
-						.delete())
-			.then(() => song)
-		);
+		return this.db.songs.delete(song.id)
+		.then(() => this.db.librarySongs
+					.where('songId').equals(song.id)
+					.delete())
+		.then(() => song)
 	}
 
 }

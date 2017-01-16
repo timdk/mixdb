@@ -1,16 +1,16 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { IndexeddbMixService } from './indexeddb-mix.service';
+import { IndexedDBMixService } from './indexeddb-mix.service';
 
 describe('IndexeddbMixService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [IndexeddbMixService]
+      providers: [IndexedDBMixService]
     });
   });
 
-  it('should ...', inject([IndexeddbMixService], (service: IndexeddbMixService) => {
+  it('should ...', inject([IndexedDBMixService], (service: IndexedDBMixService) => {
     expect(service).toBeTruthy();
   }));
 });

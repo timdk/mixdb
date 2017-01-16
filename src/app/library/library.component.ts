@@ -25,7 +25,7 @@ export class LibraryComponent implements OnInit {
 	@ViewChild(LibraryTableComponent)
 	private table: LibraryTableComponent;
 
-	public isCollapsed: boolean = true;
+	private isCollapsed: boolean = true; // State of the addToLibrary component 
 
 	/**
 	 * Creates an instance of LibraryComponent.

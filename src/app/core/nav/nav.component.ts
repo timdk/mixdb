@@ -8,7 +8,13 @@ import { AuthService } from '../auth.service';
 })
 export class NavComponent {
     @Input() public title = 'Default';
-    public navCollapsed: boolean = true;
+    public navCollapsed: boolean = true;    // Tracks the state of the nav bar on small devices
     
+    /**
+     * Creates an instance of NavComponent.
+     * AuthService is injected to show the logout link and hide areas when 
+     * not logged in.
+     * @param {AuthService} authService
+     */
     constructor(private authService: AuthService) { }
 }

@@ -25,6 +25,16 @@ export class MixDetailComponent implements OnInit {
 	private new: boolean = false;	// Is this a newly created mix?
 	private dirty: boolean = false;	// Has unsaved changes
 
+	
+	/**
+	 * Creates an instance of MixDetailComponent.
+	 * 
+	 * @param {ActivatedRoute} route
+	 * @param {Router} router
+	 * @param {MixService} mixService
+	 * 
+	 * @memberOf MixDetailComponent
+	 */
 	constructor(
 		private route: ActivatedRoute,
 		private router: Router,
