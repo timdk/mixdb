@@ -12,20 +12,20 @@ export class Mix {
 	userId: string;	// Populated by MixService with current user's ID when saving.
 	createdDate: Date;
 	modifiedDate: Date;
-	name: string;
+	title: string;
 	tracklist: Song[] = [];
 
 	/**
 	 * Creates an instance of Mix.
 	 * 
-	 * @param {string} name
+	 * @param {string} title
 	 * @constructor
 	 */
-	constructor(name?: string) {
+	constructor(title?: string) {
 		this.id = UUID.UUID();
 		this.createdDate = new Date();
 		this.modifiedDate = new Date();
-		this.name = name || 'Untitled';
+		this.title = title || 'Untitled';
 	}
 
 }
@@ -35,6 +35,6 @@ export interface MixJSON {
 	userId: string,
 	createdDate: Date;
 	modifiedDate: Date;
-	name: string;
+	title: string;
 	tracklist: Array<any>;
 }

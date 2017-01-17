@@ -21,9 +21,10 @@ import { Song } from '../../song/song';
 })
 export class MixDetailComponent implements OnInit {
 	mix: Mix;
-	private editingTitle: boolean = false;
 	private new: boolean = false;	// Is this a newly created mix?
 	private dirty: boolean = false;	// Has unsaved changes
+	private editingTitle: boolean = false;
+	private originalTitle: string;
 
 	
 	/**
@@ -83,5 +84,16 @@ export class MixDetailComponent implements OnInit {
 	appendTrack(track: Song) {
 		this.mix.tracklist.push(track);
 		this.dirty = true;
+	}
+
+	private editTitle(editing: boolean) {
+		if (editing) {
+			this.originalTitle = this.mix.title;
+		} else {
+			if (this.mix.title !== this.originalTitle) {
+				this.dirty = true;
+			}
+		}
+		this.editingTitle = editing;
 	}
 } 
