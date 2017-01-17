@@ -25,7 +25,7 @@ export class LibraryComponent implements OnInit {
 	@ViewChild(LibraryTableComponent)
 	private table: LibraryTableComponent;
 
-	private isCollapsed: boolean = true; // State of the addToLibrary component 
+	private addToLibraryCollapsed: boolean = true; // State of the addToLibrary component 
 
 	/**
 	 * Creates an instance of LibraryComponent.
@@ -56,11 +56,10 @@ export class LibraryComponent implements OnInit {
 	 * 
 	 * @memberOf LibraryComponent
 	 */
-	addSong(artist: string, title: string): void {
-		let song = new Song(artist, title);
+	addSong(song: Song): void {
 		this.libraryService.addSong(this.library, song)
 		.then(() => {
-			this.refresh()
+			this.refresh();
 		});
 	}
 

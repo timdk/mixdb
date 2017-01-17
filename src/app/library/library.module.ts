@@ -6,6 +6,7 @@ import { IndexedDBLibraryService } from './indexeddb-library.service';
 
 import { LibraryComponent } from './library.component';
 import { LibraryTableComponent } from './library-table/library-table.component';
+import { AddToLibraryComponent } from './add-to-library/add-to-library.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { LibraryTableComponent } from './library-table/library-table.component';
     ],
     declarations: [
         LibraryComponent,
-        LibraryTableComponent
+        LibraryTableComponent,
+        AddToLibraryComponent
     ],
     providers: [
         { provide: LibraryService, useClass: IndexedDBLibraryService }
