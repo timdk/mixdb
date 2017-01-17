@@ -1,6 +1,7 @@
 
-<div *ngIf="config.filtering" class="table-filter">
-  <input placeholder="Find" class="form-control"
+<div *ngIf="config.filtering" class="table-filter input-group">
+      <div class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></div>
+      <input placeholder="Filter" class="form-control"
           [ngTableFiltering]="config.filtering"
           class="form-control"
           (tableChanged)="onChangeTable(config)"/>
