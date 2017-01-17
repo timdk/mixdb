@@ -3,12 +3,10 @@
 <div class="tracklist">
 
     <ul class="list-group row">
-        <li *ngFor="let song of mix.tracklist; let i = index;" class="list-group-item">
-            <div class="col-1">#{{i+1}}</div>
-            <div class="col-3"><b>{{song.artist}}</b></div>
-            <div class="col-4">{{song.title}}</div>
-            <div class="col-2">{{song.key}}</div>
-            <div class="col-2">{{song.tempo}}</div>
+        <li mix-tracklist-song 
+            *ngFor="let song of mix.tracklist; let i = index;" 
+            [song]="song" [index]="i"
+            class="list-group-item">
         </li>
 
         <!-- Search library for next track -->
@@ -22,15 +20,12 @@
                     (keyup)="filterLibrary(filterInput.value)">
             </div>
         </li>
-        <!-- Display search results -->
-        <li *ngFor="let song of filteredSongs; let i = index;" 
-            class="list-group-item"
-            (click)="addTrackClicked(song)">
-                <div class="col-1"></div>
-                <div class="col-3"><b>{{song.artist}}</b></div>
-                <div class="col-4">{{song.title}}</div>
-                <div class="col-2">{{song.key}}</div>
-                <div class="col-2">{{song.tempo}}</div>
+         <!--Display search results -->
+        <li mix-tracklist-song 
+            *ngFor="let song of filteredSongs; let i = index;" 
+            [song]="song"
+            (click)="addTrackClicked(song)"
+            class="list-group-item">
         </li>
     </ul>
 

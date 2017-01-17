@@ -9,6 +9,7 @@ import { MixesComponent } from './mixes/mixes.component';
 import { MixDetailComponent } from './mix-detail/mix-detail.component';
 import { MixesTableComponent } from './mixes-table/mixes-table.component';
 import { MixTracklistComponent } from './mix-detail/mix-tracklist/mix-tracklist.component';
+import { MixTracklistSongComponent } from './mix-detail/mix-tracklist-song/mix-tracklist-song.component';
 
 @NgModule({
     imports: [
@@ -18,7 +19,8 @@ import { MixTracklistComponent } from './mix-detail/mix-tracklist/mix-tracklist.
         MixesComponent,
         MixDetailComponent,
         MixesTableComponent,
-        MixTracklistComponent
+        MixTracklistComponent,
+        MixTracklistSongComponent
     ],
     providers: [
         { provide: MixService, useClass: IndexedDBMixService }
