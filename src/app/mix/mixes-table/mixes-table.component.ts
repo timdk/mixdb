@@ -19,7 +19,7 @@ import { Mix } from '../mix';
 export class MixesTableComponent extends TableComponent {
 
     public columns: Array<any> = [
-        { title: 'Name', name: 'name' },
+        { title: 'Name', name: 'title' },
         //{ title: 'Created', name: 'createdDate' },
         { title: 'Date', name: 'date', sort: 'desc' }
     ];

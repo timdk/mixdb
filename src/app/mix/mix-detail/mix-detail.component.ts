@@ -45,11 +45,9 @@ export class MixDetailComponent implements OnInit {
 	/** Load the from the ID on the route or create a new one */
 	ngOnInit() {
 		let id = this.route.snapshot.params['id'];
-		//console.log('MixDetailComponent: Mix id: ', id);
 		if (!id) {
 			this.mix = new Mix();
 			this.new = true;
-			//this.mix.tracklist.push(new Song());
 		} else {
 			this.mixService.getMix(id)
 			.then(mix => this.mix = mix);
@@ -62,7 +60,7 @@ export class MixDetailComponent implements OnInit {
 		.then(mix => {
 			this.new = false;
 			this.dirty = false;
-			console.log('MixDetailComponent: Saved mix: ', mix)
+			// console.log('MixDetailComponent: Saved mix: ', mix)
 		});
 	}
 
@@ -86,6 +84,7 @@ export class MixDetailComponent implements OnInit {
 		this.dirty = true;
 	}
 
+	/** Toggle the state of the title editing control and update the Mix */
 	private editTitle(editing: boolean) {
 		if (editing) {
 			this.originalTitle = this.mix.title;
