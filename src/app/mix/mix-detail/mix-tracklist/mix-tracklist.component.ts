@@ -52,7 +52,7 @@ export class MixTracklistComponent implements OnInit {
             this.librarySongs.forEach((item:any) => {
                 let flag = false;
                 searchProperties.forEach((property: any) => {
-                    if (item[property].toString().toLowerCase().match(filterString.toLowerCase())) {
+                    if (item[property] !== undefined && item[property].toString().toLowerCase().match(filterString.toLowerCase())) {
                         flag = true;
                     }
                 });
