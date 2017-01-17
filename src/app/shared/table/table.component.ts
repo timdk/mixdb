@@ -62,7 +62,8 @@ export class TableComponent implements OnInit {
     constructor() {}
 
     ngOnInit(): void {
-         this.onChangeTable(this.config);
+		this.config.sorting = { columns: this.columns };
+		this.onChangeTable(this.config);
     }
 
     setData(data: Array<any>): void {
