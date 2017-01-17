@@ -6,6 +6,7 @@ import { IndexedDBSongService } from './indexeddb-song.service';
 
 /** Components */
 import { SongDetailComponent } from './song-detail/song-detail.component';
+import { KeyComponent } from './song-detail/key/key.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { SongDetailComponent } from './song-detail/song-detail.component';
         SharedModule
     ],
     declarations: [
-         SongDetailComponent
+         SongDetailComponent,
+         KeyComponent
     ],
     providers: [
         { provide: SongService, useClass: IndexedDBSongService }

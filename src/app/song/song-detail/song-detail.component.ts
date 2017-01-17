@@ -16,7 +16,8 @@ import { SongService } from '../song.service';
 	templateUrl: './song-detail.component.html',
 	styleUrls: [ 
 		'./song-detail.component.css',
-		'./btn-group-justified.scss' ]
+		// './btn-group-justified.scss' 
+	]
 })
 export class SongDetailComponent {
 	@Input()

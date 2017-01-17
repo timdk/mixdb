@@ -1,5 +1,7 @@
 import { UUID } from 'angular2-uuid';
 
+import { Key } from './key';
+
 /**
  * A song.
  * 
@@ -11,7 +13,7 @@ export class Song {
 	artist: string;
 	title: string;
 	tempo: number;
-	key: string;
+	key: Key;
 
 	/**
 	 * Creates an instance of Song.
@@ -28,14 +30,64 @@ export class Song {
 		artist: string = 'Unknown Artist', 
 		title: string = 'Untitled', 
 		tempo: number = 0, 
-		key: string = '',
+		key?: Key,
 		id?: string
 	) {
 		this.artist = artist;
 		this.title = title;
 		this.tempo = tempo;
-		this.key = key;
+		this.key = 1;
 		this.id = (id) ? id : UUID.UUID();
+	}
+
+	getKeyText(): string {
+		return Song.getKeyText(this.key);
+	}
+
+	static getKeyText(key: Key): string {
+		let text: string;
+		switch (key) {
+			case Key.C:
+				text = 'C';
+				break;
+			case Key.DFlat:
+				text = 'C♯ / D♭';
+				break;
+			case Key.D:
+				text = 'D';
+				break;
+			case Key.EFlat:
+				text = 'D♯ / E♭';
+				break;
+			case Key.E:
+				text = 'E';
+				break;
+			case Key.F:
+				text = 'F';
+				break;
+			case Key.FSharp:
+				text = 'F♯ / G♭';
+				break;
+			// case Key.GFlat:
+			// 	text = 'G♭';
+			// 	break;
+			case Key.G:
+				text = 'G';
+				break;
+			case Key.AFlat:
+				text = 'G♯ / A♭';
+				break;
+			case Key.A:
+				text = 'A';
+				break;
+			case Key.BFlat:
+				text = 'A♯ / B♭';
+				break;
+			case Key.B:
+				text = 'B';
+				break;
+		}
+		return text;
 	}
 
 	/** de/serialisation functions  */
@@ -64,5 +116,5 @@ export interface SongJSON {
 	artist: string;
 	title: string;
 	tempo: number;
-	key: string;
+	key: number;
 }

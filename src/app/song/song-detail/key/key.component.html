@@ -1,0 +1,9 @@
+<div class="row">
+    <div *ngFor="let key of keys" class="col-4 col-md-2 col-lg-1" align="center">
+        <span class="text-center badge badge-key badge-pill badge-default" 
+                [class.badge-primary]="key.text === song.getKeyText()"
+                (click)="song.key = key.value">
+            {{key.text}}
+        </span>
+    </div>
+</div>
