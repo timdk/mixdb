@@ -32,4 +32,17 @@ export class KeyComponent {
         this.keys = values.map(k => { return { value: k, text: Song.getKeyText(k) }; });
     }
 
+    
+    /**
+     * Set or unset the key on the song.
+     * @param {number} key
+     */
+    setKey(key: Key) {
+        if (this.song.key === key) {
+            this.song.key = undefined;
+        } else {
+            this.song.key = key;
+        }
+    }
+
 }
