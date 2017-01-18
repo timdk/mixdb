@@ -1,12 +1,17 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { IndexedDBMixService } from './indexeddb-mix.service';
 
-describe('IndexeddbMixService', () => {
+import { IndexedDBMixService } from './indexeddb-mix.service';
+import { AuthService } from '../core/auth.service';
+import { FakeAuthService } from '../../testing/fake-auth.service';
+
+describe('IndexedDBMixService', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
-        providers: [IndexedDBMixService]
+        providers: [
+            IndexedDBMixService, 
+            { provide: AuthService, useClass: FakeAuthService }]
         });
     });
 

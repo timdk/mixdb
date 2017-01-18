@@ -19,7 +19,7 @@ import { UserService } from '../user/user.service'
 @Injectable()
 export class AuthService {
     private readonly autoLoginKey: string = 'AuthService.AutoLogin';    // localStorage key to store details against for autologin.
-    private user: User = null;          // The authenticated user. Cached here for future proofing.
+    private user: User;          // The authenticated user. Cached here for future proofing.
     
     public isLoggedIn: boolean = false;
     public redirectUrl: string;         // store the URL so we can redirect after logging in
@@ -79,8 +79,8 @@ export class AuthService {
      */
     logout(): void {
         this.isLoggedIn = false;
-        this.user = null;
-        this.redirectUrl = null;
+        this.user = undefined;
+        this.redirectUrl = undefined;
         localStorage.removeItem(this.autoLoginKey);
         this.router.navigateByUrl('/login');
     }

@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { AddToLibraryComponent } from './add-to-library.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('AddToLibraryComponent', () => {
   let component: AddToLibraryComponent;
@@ -11,6 +12,9 @@ describe('AddToLibraryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        NgbModule.forRoot()
+      ],
       declarations: [ AddToLibraryComponent ]
     })
     .compileComponents();

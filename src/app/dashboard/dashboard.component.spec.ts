@@ -30,11 +30,7 @@ describe('DashboardComponent', () => {
     });
 
     it('should have a welcome message', () => {
-        expect(true).toBeFalsy('test not implemented');
+        let welcomeElement = fixture.debugElement.query(By.css('.welcome-message'));
+        expect(welcomeElement).toBeTruthy();
     });
-
-    it('should be useful', () => {
-        let useful = false;
-        expect(useful).toBeTruthy('the dashboard is useless');
-    })
 });
